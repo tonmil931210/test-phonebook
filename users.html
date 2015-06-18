@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Milton Casanova</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="image/depositphotos_34561733-phonebook-icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+<!-- MODAL --> 
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog"> 
+      <!-- MODAL CONTENT --> 
+      <div class="modal-content">
+        <div class="modal-header"> 
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Contact</h4>
+        </div>
+        <div class="modal-body">
+          <form id="form" class="" data-contact-id="">
+            <div class="form-group">
+              <input class="center-input form-control" name="name" type="text" placeholder="name">
+            </div>
+            <div class="form-group">
+              <input class="center-input form-control" name="phone" type="text" placeholder="phone">
+            </div> 
+            <div class="form-group">
+              <input class="center-input form-control" name="cellphone" type="text" placeholder="cellphone">
+            </div>         
+            <button id="button" type="submit" class="btn btn-primary btn-lg btn-block">Create</button>
+          </form>
+        </div>         
+      </div>
+    </div>
+  </div>
+  <div class="container"> 
+    <div class="logo">
+      <h3>Contacts</h3>
+    </div>
+      <div class="row">
+       <div class="col-lg-12 col-md-12 col-xs-12">
+         <table class="table table-striped">
+           <thead>
+             <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Lastname</th>
+               <th>Phone</th>
+               <th>Cellphone</th>
+               <th>Address</th>
+               <th>Editar</th>
+               <th>Elimnar</th>
+             </tr>
+           </thead>
+           <tbody id="info-contacts">
+             
+           </tbody>
+         </table>
+         <div class="col-lg-6 col-md-6 col-xs-6 col-md-offset-3">
+           <button id="button-create" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Create Contact</button>
+         </div>
+       </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/requests.js"></script>
+  <script type="text/javascript" src="js/users.js"></script>
+</body>
+</html>
