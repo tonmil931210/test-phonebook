@@ -1,7 +1,7 @@
 var BASE_URL = "http://192.168.56.101:3000"
 var request = function(method, url, data, callback) {
   $.ajax({
-    beforeSend: function(xhr){
+    beforeSend: function(xhr) {
       xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
       console.log('esa monda es:' + window.localStorage.getItem('Authorization'))
       if (window.localStorage.getItem('Authorization')) {
@@ -10,7 +10,6 @@ var request = function(method, url, data, callback) {
       } else {
         console.log('no mande el token')
       }
-
       xhr.withCredentials = true
     },
     url: BASE_URL + url,
@@ -18,10 +17,10 @@ var request = function(method, url, data, callback) {
     dataType: "json",
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(data),
-    success: function(data){
+    success: function(data) {
       callback(data, null)
     },
-    error: function(error, status, err){
+    error: function(error, status, err) {
       callback(null, error.status)
     }
   })
