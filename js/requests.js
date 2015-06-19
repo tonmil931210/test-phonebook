@@ -3,12 +3,8 @@ var request = function(method, url, data, callback) {
   $.ajax({
     beforeSend: function(xhr) {
       xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
-      console.log('esa monda es:' + window.localStorage.getItem('Authorization'))
       if (window.localStorage.getItem('Authorization')) {
-        console.log('mande el token')
         xhr.setRequestHeader('Authorization', window.localStorage.Authorization)
-      } else {
-        console.log('no mande el token')
       }
       xhr.withCredentials = true
     },

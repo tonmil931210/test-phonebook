@@ -29,10 +29,8 @@ $(document).ready(function(){
           var contactId = $(this).data('contact-id');
           var userID = window.localStorage.getItem('UseriId')
           var AgendaID = window.localStorage.getItem('AgendaId')
-          console.log('entro al edit')
-          request("GET", "/users/"+ userID +"/agendas/"+ AgendaID +"/contacts/" + contactId + '/edit', {}, function(data, err) {
+           request("GET", "/users/"+ userID +"/agendas/"+ AgendaID +"/contacts/" + contactId, {}, function(data, err) {
             if (data) {
-              console.log('la data del edit fue traida')
               $("#form").removeClass("form-create-contact");
               $("#form").addClass("form-edit-contact");
               $('#form').attr('data-contact-id', contactId);
