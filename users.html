@@ -19,15 +19,15 @@
           <h4 class="modal-title">Create Contact</h4>
         </div>
         <div class="modal-body">
-          <form id="form" class="" data-contact-id="">
+          <form id="form" data-bind="attr: { 'data-contact-id': formContactId, class: typeForm }, submit: requestForm">
             <div class="form-group">
-              <input class="center-input form-control" name="name" type="text" placeholder="name">
+              <input class="center-input form-control" data-bind="textInput: name" name="name" type="text" placeholder="name">
             </div>
             <div class="form-group">
-              <input class="center-input form-control" name="phone" type="text" placeholder="phone">
+              <input class="center-input form-control" data-bind="textInput: phone" name="phone" type="text" placeholder="phone">
             </div> 
             <div class="form-group">
-              <input class="center-input form-control" name="cellphone" type="text" placeholder="cellphone">
+              <input class="center-input form-control" data-bind="textInput: cellphone" name="cellphone" type="text" placeholder="cellphone">
             </div>         
             <button id="button" type="submit" class="btn btn-primary btn-lg btn-block">Create</button>
           </form>
@@ -54,18 +54,28 @@
                <th>Elimnar</th>
              </tr>
            </thead>
-           <tbody id="info-contacts">
-             
+           <tbody id="info-contacts" data-bind="foreach: listContacts">
+             <tr>
+               <td data-bind="text: id"></td>
+               <td data-bind="text: name"></td>
+               <td data-bind="text: last_name"></td>
+               <td data-bind="text: phone"></td>
+               <td data-bind="text: cellphone"></td>
+               <td data-bind="text: address"></td>
+               <td><button class='btn btn-primary' data-bind="click: $parent.editContact">Editar</button></td>
+               <td><button data-bind="click: $parent.destroyContact" class='btn btn-danger'>Eliminar</button></td>
+             </tr>
            </tbody>
          </table>
          <div class="col-lg-6 col-md-6 col-xs-6 col-md-offset-3">
-           <button id="button-create" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Create Contact</button>
+           <button id="button-create" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal" data-bind="click: createButton">Create Contact</button>
          </div>
        </div>
     </div>
   </div>
   <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
   <script type="text/javascript" src="js/requests.js"></script>
   <script type="text/javascript" src="js/users.js"></script>
 </body>

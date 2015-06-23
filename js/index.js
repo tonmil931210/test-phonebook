@@ -1,7 +1,6 @@
 $(document).ready(function(){
-  function loginUser() {
-    var username = $("input[name=username]").val()
-    var password = $("input[name=password]").val()
+  
+  function loginUser(username, password) {
     var data = {
       username: username,
       password: password
@@ -19,8 +18,14 @@ $(document).ready(function(){
       }
     })
   }
-  $("#login-form").submit(function(event) {
-    event.preventDefault();
-    loginUser();
-  })
+
+  var viewModelLogin = function() {
+    var self = this;
+    self.username = ko.observable();
+    self.password = ko.observable();
+    self.createSession = function() {
+      loginUser(self.username(), self.password());
+    }
+  }
+  ko.applyBindings(new viewModelLogin)
 })
