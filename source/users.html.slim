@@ -1,0 +1,49 @@
+
+// MODAL
+.modal.fade#myModal role="dialog"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" x
+        h4.modal-title Create Contact
+      .modal-body
+        form#form data-bind="attr: { 'data-contact-id': formContactId, class: typeForm }, submit: requestForm"
+          .form-group
+            input.center-input.form-control name="name" type="text" data-bind="textInput: name" placeholder="Name"
+          .form-group
+            input.center-input.form-control name="phone" type="text" data-bind="textInput: phone" placeholder="Phone"
+          .form-group
+            input.center-input.form-control name="cellphone" type="text" data-bind="textInput: cellphone" placeholder="Cellphone"
+          button.btn.btn-primary.btn-lg.btn-block#button type="submit" data-bind="text: typeForm() == 'form-create-contact' ? 'Create' : 'Edit'" Create
+// FIN MODAL
+.container
+  .logo
+    h3 Contacts
+  .row
+    .col-lg-12.col-md-12.col-xs-12
+      table.table.table-striped
+        thead
+          tr
+            th ID
+            th Name
+            th Phone
+            th Cellphoen
+            th Editar
+            th Eliminar
+        tbody#info-contacts data-bind="foreach: listContacts"
+          tr
+            td data-bind="text: id"
+            td data-bind="text: name"
+            td data-bind="text: phone"
+            td data-bind="text: cellphone"
+            td 
+              button.btn.btn-primary data-bind="click: function() {$root.editContact($data);}" Editar
+            td 
+              button.btn.btn-danger data-bind="click: $root.destroyContact" Eliminar
+      .col-lg-6.col-md-6.col-xs-6.col-md-offset-3
+        button.btn.btn-primary.btn-lg.btn-block#button-create type="button" data-toggle="modal" data-target="#myModal" data-bind="click: createButton" Create Contact
+script src="javascripts/jquery-2.1.4.min.js"
+script src="javascripts/bootstrap.min.js"
+script src="javascripts/knockout-3.3.0.js"
+script src="javascripts/classes/requests.js"
+script src="javascripts/viewModels/users.js"

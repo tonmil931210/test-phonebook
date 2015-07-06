@@ -1,0 +1,19 @@
+
+.alert.alert-indo.alert.dismissable.col-lg-3.col-xs-3.col-md-3
+	button.close type="button" data-dismiss="alert" &times;
+	p#message-info
+.container
+	.row
+		.col-lg-12.all
+			.wrap
+				p.form-title Sign In
+				form#login-form.login data-bind="submit: createSession"
+					input type="text" name="username" placeholder="Username" data-bind="textInput: username"
+					input type="password" name="password" placeholder="Password" data-bind="textInput: password"
+					input.btn.btn-sm type="submit" value="Sign In"
+script src="javascripts/jquery-2.1.4.min.js"
+script src="javascripts/bootstrap.min.js"
+script src="javascripts/knockout-3.3.0.js"
+script src="javascripts/classes/requests.js"
+script src="javascripts/viewModels/index.js"
+

@@ -1,0 +1,117 @@
+body
+{
+    background-color: #2A3644;
+    padding: 0;
+    margin: 0;
+}
+
+.alert{
+    display: none;
+    float: right;
+}
+
+.all{
+    margin-top: 12%;
+}
+h3{
+    color: white;
+    text-align: center;
+}
+
+tr{
+    color: black;
+}
+
+.logo{
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.form-control{
+    color: black !important;
+}
+.table{
+    background: white;
+}
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+p.form-title
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+form
+{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+input[type="password"], input[name="username"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid white;
+    outline: 0;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: white;
+
+}
+
+input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: none !important;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-color: #8E8C8D;
+    background-color: #8E8C8D;
+    color: #fff
+}
+
+input[type="submit"]:hover
+{
+    color: #fff
+}
+label
+{
+    float: left;
+    font-size: 15px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+@media (max-width: 979px) {
+    .all{
+        margin-top: 20%;
+    }
+}
