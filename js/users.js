@@ -9,9 +9,9 @@ $(document).ready(function(){
     self.formContactId = ko.observable();
     self.typeForm = ko.observable();
     self.getContacts = function() {
-      var userID = window.localStorage.getItem('UseriId');
-      var AgendaID = window.localStorage.getItem('AgendaId');
-      request("GET", "/users/"+ userID +"/agendas/"+ AgendaID +"/contacts", {}, function(data, error) {
+      var userID = window.localStorage.getItem('UserId');
+      var agendaID = window.localStorage.getItem('AgendaId');
+      request("GET", "/users/"+ userID +"/agendas/"+ agendaID +"/contacts", {}, function(data, error) {
         if (!data) {
           alert('error get contacts')  
         }
@@ -24,9 +24,9 @@ $(document).ready(function(){
         phone: self.phone(),
         cellphone: self.cellphone()
       }
-      var userID = window.localStorage.getItem('UseriId');
-      var AgendaID = window.localStorage.getItem('AgendaId');
-      request(method, "/users/"+ userID +"/agendas/"+ AgendaID +"/contacts/" + id, params, function(data, erro) {
+      var userID = window.localStorage.getItem('UserId');
+      var agendaID = window.localStorage.getItem('AgendaId');
+      request(method, "/users/"+ userID +"/agendas/"+ agendaID +"/contacts/" + id, params, function(data, erro) {
         if (data) {
           self.getContacts();
         } else {
@@ -41,9 +41,11 @@ $(document).ready(function(){
       self.name(contact.name);
       self.phone(contact.phone);
       self.cellphone(contact.name);
-      }
+    }
     self.destroyContact = function(contact) {
-      request("DELETE", "/users/"+ userID +"/agendas/"+ AgendaID +"/contacts/" + contact.id, {}, function(data, err) {
+      var userID = window.localStorage.getItem('UserId');
+      var agendaID = window.localStorage.getItem('AgendaId');
+      request("DELETE", "/users/"+ userID +"/agendas/"+ agendaID +"/contacts/" + contact.id, {}, function(data, err) {
         if (data) {
           self.listContacts.remove(contact);
         } else {
